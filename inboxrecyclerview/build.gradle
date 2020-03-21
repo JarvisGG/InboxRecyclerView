@@ -1,25 +1,17 @@
-buildscript {
-  repositories {
-    jcenter()
-  }
-  dependencies {
-    classpath "org.jetbrains.dokka:dokka-android-gradle-plugin:$versions.dokka"
-  }
-}
+import org.jetbrains.kotlin.config.KotlinCompilerVersion
 
 apply plugin: 'com.android.library'
 apply plugin: 'kotlin-android'
 apply plugin: 'kotlin-android-extensions'
 apply plugin: 'kotlin-kapt'
-apply plugin: 'org.jetbrains.dokka-android'
 
 android {
-  compileSdkVersion versions.compileSdk
-  resourcePrefix "irv_"
+  compileSdkVersion 29
+  buildToolsVersion "29.0.2"
 
   defaultConfig {
-    minSdkVersion 21
-    targetSdkVersion versions.compileSdk
+    minSdkVersion 17
+    targetSdkVersion 29
   }
 
   buildTypes {
@@ -34,9 +26,8 @@ android {
 }
 
 dependencies {
-  implementation "androidx.appcompat:appcompat:$versions.androidx"
-  implementation "androidx.recyclerview:recyclerview:$versions.androidx"
-  implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$versions.kotlin"
+  implementation fileTree(dir: 'libs', include: ['*.jar'])
+  api "org.jetbrains.kotlin:kotlin-stdlib-jdk8:$KotlinCompilerVersion.VERSION"
+  api "androidx.appcompat:appcompat:1.1.0"
+  api "androidx.recyclerview:recyclerview:1.2.0-alpha01"
 }
-
-apply from: rootProject.file('gradle/gradle-mvn-push.gradle')
