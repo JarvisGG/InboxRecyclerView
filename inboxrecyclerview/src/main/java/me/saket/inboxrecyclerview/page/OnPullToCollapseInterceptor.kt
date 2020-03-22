@@ -1,5 +1,7 @@
 package me.saket.inboxrecyclerview.page
 
+import android.view.MotionEvent
+
 /**
  * Called once every time a vertical scroll gesture is registered on [ExpandablePageLayout].
  * When intercepted, all touch events until the finger is lifted will be ignored. This is
@@ -19,10 +21,10 @@ package me.saket.inboxrecyclerview.page
  *
  * @return True to consume this touch event. False otherwise.
  */
-typealias OnPullToCollapseInterceptor = (downX: Float, downY: Float, upwardPull: Boolean) -> InterceptResult
+typealias OnPullToCollapseInterceptor = (event: MotionEvent, downX: Float, downY: Float, upwardPull: Boolean) -> InterceptResult
 
 @Deprecated(
     message = "ExpandablePageLayout#pullToCollapseInterceptor is now nullable so this is no longer required",
     replaceWith = ReplaceWith("null")
 )
-val IGNORE_ALL_PULL_TO_COLLAPSE_INTERCEPTOR : OnPullToCollapseInterceptor = { _, _, _ -> InterceptResult.IGNORED }
+val IGNORE_ALL_PULL_TO_COLLAPSE_INTERCEPTOR : OnPullToCollapseInterceptor = { _, _, _, _ -> InterceptResult.IGNORED }

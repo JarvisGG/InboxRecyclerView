@@ -659,7 +659,7 @@ open class ExpandablePageLayout @JvmOverloads constructor(
       val interceptor = pullToCollapseInterceptor
 
       return when {
-        interceptor != null -> interceptor(downX, downY, deltaUpwardSwipe)
+        interceptor != null -> interceptor(event, downX, downY, deltaUpwardSwipe)
         else -> InterceptResult.IGNORED
       }
     }
