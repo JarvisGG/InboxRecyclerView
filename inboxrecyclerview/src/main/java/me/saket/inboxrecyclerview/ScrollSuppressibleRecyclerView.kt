@@ -3,6 +3,7 @@ package me.saket.inboxrecyclerview
 import android.content.Context
 import android.util.AttributeSet
 import androidx.recyclerview.widget.RecyclerView
+import com.topList.theme.base.widget.TRecyclerView
 
 /**
  * Freezing layout using [setLayoutFrozen] isn't sufficient for blocking programmatic scrolls
@@ -12,7 +13,7 @@ import androidx.recyclerview.widget.RecyclerView
 abstract class ScrollSuppressibleRecyclerView(
     context: Context,
     attrs: AttributeSet?
-) : RecyclerView(context, attrs) {
+) : TRecyclerView(context, attrs) {
 
   abstract fun canScrollProgrammatically(): Boolean
 

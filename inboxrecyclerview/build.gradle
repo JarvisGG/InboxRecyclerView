@@ -30,4 +30,5 @@ dependencies {
   api "org.jetbrains.kotlin:kotlin-stdlib-jdk8:$KotlinCompilerVersion.VERSION"
   api "androidx.appcompat:appcompat:1.1.0"
   api "androidx.recyclerview:recyclerview:1.2.0-alpha01"
+  implementation project(":theme")
 }
